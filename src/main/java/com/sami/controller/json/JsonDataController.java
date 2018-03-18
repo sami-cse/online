@@ -26,7 +26,7 @@ public class JsonDataController {
 
 	@RequestMapping("/category/{categoryId}/products")
 	@ResponseBody
-	public List<Product> findAllByCategoryId(@PathVariable int categoryId) {
-		return productRepository.getProductByCategoryId(categoryId);
+	public List<Product> findAllProductByCategoryId(@PathVariable int categoryId) {
+		return productRepository.getProductsByCategoryId(categoryId);
 	}
 }
