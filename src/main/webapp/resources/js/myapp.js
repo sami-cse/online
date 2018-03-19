@@ -29,9 +29,9 @@ $(function() {
 
 		var jsonUrl = '';
 		if (window.categoryId == '') {
-			jsonUrl = window.contextRoot + '/json/data/products';
+			jsonUrl = window.contextPath + '/json/data/products';
 		} else {
-			jsonUrl = window.contextRoot + '/json/data/category/' + window.categoryId
+			jsonUrl = window.contextPath + '/json/data/category/' + window.categoryId
 					+ '/products';
 		}
 		// console.log('Inside The Table');
@@ -50,7 +50,7 @@ $(function() {
 								bSortable : false,
 								mRender : function(data, type, row) {
 
-									return '<img src="' + window.contextRoot
+									return '<img src="' + window.contextPath
 											+ '/resources/images/' + data
 											+ '" class="dataTableImg"/>';
 								}
@@ -65,7 +65,16 @@ $(function() {
 								}
 							},
 							{
-								data : 'quantity'
+								data : 'quantity',
+								mRender : function(data, type, row) {
+
+									if (data < 1) {
+										return '<span style="color:red">Out of Stock!</span>';
+									}
+
+									return data;
+
+								}
 							},
 							{
 								data : 'productId',
@@ -73,13 +82,19 @@ $(function() {
 								mRender : function(data, type, row) {
 									var str = '';
 									str += '<a href="'
-											+ window.contextRoot+'/'
+											+ window.contextPath+'/product/'
+											+ data+'" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';
+									
+									
+									if(row.quantity < 1){
+										str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a> &#160;';
+									}else {
+										str += '<a href="'
+											+ window.contextPath+'/product/'
 											+ data
-											+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';
-									str += '<a href="'
-											+ window.contextRoot+'/'
-											+ data
-											+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span></a> &#160;';
+											+'" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a> &#160;';
+									}
+									
 									return str;
 								}
 							} ]

@@ -4,7 +4,7 @@
 <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
-<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -23,7 +23,7 @@
 <title>${title}</title>
 <script type="text/javascript">
 	window.menu = '${title}';
-	window.contextRoot = '${contextRoot}';
+	window.contextPath = '${contextPath}';
 </script>
 
 <link href="${css}/bootstrap.min.css" rel="stylesheet">

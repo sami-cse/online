@@ -9,13 +9,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sami.model.Category;
+import com.sami.model.Product;
 import com.sami.repository.CategoryRepository;
+import com.sami.repository.ProductRepository;
 
 @Controller
 public class WebsiteHomeController {
 
 	@Autowired
 	CategoryRepository categoryRepository;
+
+	@Autowired
+	ProductRepository productRepository;
 
 	@RequestMapping(value = { "/", "/home" })
 	public String home(Model model) {
@@ -55,6 +60,17 @@ public class WebsiteHomeController {
 		boolean categoryUrl = request.getServletPath() != null;
 		model.addAttribute("categoryUrl", categoryUrl);
 		model.addAttribute("pages", "products");
+		return "website/index";
+	}
+
+	@RequestMapping(value = { "/product/{index}" })
+	public String singleProduct(Model model, @PathVariable int index) {
+		Product product = productRepository.findByProductId(index);
+		product.setViews(product.getViews() + 1);
+		productRepository.save(product);
+		model.addAttribute("title", product.getProductName());
+		model.addAttribute("product", product);
+		model.addAttribute("pages", "product");
 		return "website/index";
 	}
 
