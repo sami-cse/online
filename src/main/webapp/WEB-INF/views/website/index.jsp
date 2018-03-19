@@ -23,9 +23,16 @@
 <title>${title}</title>
 <script type="text/javascript">
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}';
 </script>
+
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 <link href="${css}/readable.css" rel="stylesheet">
+
+<!-- DataTable Starts -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTable Ends -->
+
 <link href="${css}/shop-homepage.css" rel="stylesheet">
 <body>
 
@@ -39,6 +46,12 @@
 		<jsp:include page="/WEB-INF/views/website/includes/footer.jsp" />
 		<script src="${js}/jquery.js"></script>
 		<script src="${js}/bootstrap.min.js"></script>
+
+		<!-- DataTable Starts -->
+		<script src="${js}/jquery.dataTables.js"></script>
+		<script src="${js}/dataTables.bootstrap.js"></script>
+		<!-- DataTable Ends -->
+
 		<script src="${js}/myapp.js"></script>
 	</div>
 </body>

@@ -47,7 +47,7 @@ public class WebsiteHomeController {
 		return "website/index";
 	}
 
-	@RequestMapping(value = { "/categories/{index}/products" })
+	@RequestMapping(value = { "/category/{index}/products" })
 	public String showCategoryProducts(@PathVariable("index") int index, Model model, HttpServletRequest request) {
 		Category category = categoryRepository.findByCategoryId(index);
 		model.addAttribute("title", category.getCategoryName());

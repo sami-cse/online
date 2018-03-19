@@ -17,6 +17,9 @@ public class Product {
 	@Column(name = "ProductName")
 	private String productName;
 
+	@Column(name = "ProductPrize", nullable = true)
+	private double productPrize = 0.0;
+
 	@Column(name = "ProductCode")
 	private String productCode;
 
@@ -64,6 +67,14 @@ public class Product {
 
 	public void setProductName(String productName) {
 		this.productName = productName;
+	}
+
+	public double getProductPrize() {
+		return productPrize;
+	}
+
+	public void setProductPrize(double productPrize) {
+		this.productPrize = productPrize;
 	}
 
 	public String getProductCode() {
@@ -136,9 +147,5 @@ public class Product {
 
 	public void setUserId(User userId) {
 		this.userId = userId;
-	}
-
-	public Product() {
-		this.productCode = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();
 	}
 }
