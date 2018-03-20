@@ -49,6 +49,10 @@ public class Product {
 	private Category categoryId;
 
 	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "BrandId", referencedColumnName = "BrandId")
+	private Brand brandId;
+
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "UserId", referencedColumnName = "UserId")
 	@JsonIgnore
 	private User userId;
@@ -148,4 +152,13 @@ public class Product {
 	public void setUserId(User userId) {
 		this.userId = userId;
 	}
+
+	public Brand getBrandId() {
+		return brandId;
+	}
+
+	public void setBrandId(Brand brandId) {
+		this.brandId = brandId;
+	}
+
 }

@@ -47,6 +47,7 @@
 								<th>Name</th>
 								<th>Prize</th>
 								<th>Quantity</th>
+								<th>Brand</th>
 								<th></th>
 							</tr>
 						</thead>
