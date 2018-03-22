@@ -1,6 +1,5 @@
 package com.sami.model;
 
-import java.util.UUID;
 
 import javax.persistence.*;
 
