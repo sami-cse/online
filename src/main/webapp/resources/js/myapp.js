@@ -22,7 +22,6 @@ $(function() {
 
 	}
 
-	
 	var $table = $('#productListTable');
 
 	if ($table.length) {
@@ -31,8 +30,8 @@ $(function() {
 		if (window.categoryId == '') {
 			jsonUrl = window.contextPath + '/json/data/products';
 		} else {
-			jsonUrl = window.contextPath + '/json/data/category/' + window.categoryId
-					+ '/products';
+			jsonUrl = window.contextPath + '/json/data/category/'
+					+ window.categoryId + '/products';
 		}
 		// console.log('Inside The Table');
 		$table
@@ -93,20 +92,27 @@ $(function() {
 								bSortable : false,
 								mRender : function(data, type, row) {
 									var str = '';
-									str += '<a href="'
-											+ window.contextPath+'/product/'
-											+ data+'" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';
-									
-									
-									if(row.quantity < 1){
-										str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a> &#160;';
-									}else {
+
+									if (row.quantity < 1) {
+										str += '<a href="javascript:void(0)" class="btn btn-primary disabled"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';
+									} else {
 										str += '<a href="'
-											+ window.contextPath+'/product/'
-											+ data
-											+'" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a> &#160;';
+												+ window.contextPath
+												+ '/product/'
+												+ data
+												+ '" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';
 									}
-									
+
+									if (row.quantity < 1) {
+										str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a> &#160;';
+									} else {
+										str += '<a href="'
+												+ window.contextPath
+												+ '/product/'
+												+ data
+												+ '" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a> &#160;';
+									}
+
 									return str;
 								}
 							} ]

@@ -10,7 +10,7 @@ import com.sami.model.Product;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
 	@Query(value = "SELECT * FROM Product WHERE CategoryId=?1 ", nativeQuery = true)
-	List<Product> getProductsByCategoryId(Integer CategoryId);
+	List<Product> getProductsByCategoryId(Integer categoryId);
 
 	Product findByProductId(int productId);
 }

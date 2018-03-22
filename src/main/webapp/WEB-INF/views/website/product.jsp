@@ -6,6 +6,7 @@
 <spring:url var="images" value="/resources/images" />
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
+
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
