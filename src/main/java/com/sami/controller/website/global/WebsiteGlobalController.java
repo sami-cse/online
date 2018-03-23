@@ -10,7 +10,7 @@ import com.sami.repository.CategoryRepository;
 import com.sami.repository.ProductRepository;
 
 @ControllerAdvice
-public class GlobalController {
+public class WebsiteGlobalController {
 
 	@Autowired
 	CategoryRepository categoryRepository;
@@ -23,15 +23,6 @@ public class GlobalController {
 		model.addAttribute("categories", categoryRepository.findAllByOrderByCategoryIdAsc());
 	}
 
-	@ModelAttribute("countProductViews")
-	public void countProductViews(Model model) {
-		model.addAttribute("countProductViews", productRepository.countProductViews());
-	}
-
-	@ModelAttribute("totalProducts")
-	public void totalProducts(Model model) {
-		model.addAttribute("totalProducts", productRepository.countProducts());
-	}
 }
 
 
